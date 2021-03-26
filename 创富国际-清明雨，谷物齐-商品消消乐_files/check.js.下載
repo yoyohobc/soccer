@@ -6,16 +6,15 @@
 
  var appCustomerNo,userInfo;
 //  var appCustomerNo = 81018235;
-  var appCustomerNo = 81018303;
-   var userInfo = {
-   'account': appCustomerNo,
-   'accountType': 1,
-   'channel': 'umeng',
-   'firstLogin': false,
-   'hasReal': true,
-   'appVerCode': 186,
-   'platform':'Android'
-  };
+//  var appCustomerNo = 81018303;
+//   var userInfo = {
+//   'account': appCustomerNo,
+//   'accountType': 1,
+//   'channel': 'umeng',
+//   'firstLogin': false,
+//   'hasReal': true,
+//   'appVerCode': 186
+//  };
 
   // var mis_url = 'https://mis.cf139.com';
   // var mis_url = '//mis.cf860.com';
@@ -50,7 +49,7 @@
           }
         };
         userInfo = $.parseJSON(useInfo);
-        //appCustomerNo = userInfo.account;
+        appCustomerNo = userInfo.account;
         // // userInfo ? userInfo : (useInfo && $.parseJSON(useInfo));
         // // appCustomerNo = userInfo && userInfo.account;
         alert(useInfo)
@@ -313,7 +312,7 @@
          $.noScroll(false);
        }
      },function(err){
-        alert(JSON.stringify(err));
+        alert(JSON.stringify(data));
         $.noScroll(false);
      })
    },
