@@ -6,15 +6,16 @@
 
  var appCustomerNo,userInfo;
 //  var appCustomerNo = 81018235;
-//  var appCustomerNo = 81018303;
-//   var userInfo = { 
-//   'account': appCustomerNo,
-//   'accountType': 1,
-//   'channel': 'umeng', 
-//   'firstLogin': false,
-//   'hasReal': true, 
-//   'appVerCode': 186 
-//  };
+  var appCustomerNo = 81018303;
+   var userInfo = {
+   'account': appCustomerNo,
+   'accountType': 1,
+   'channel': 'umeng',
+   'firstLogin': false,
+   'hasReal': true,
+   'appVerCode': 186,
+   'platform':'Android'
+  };
 
   // var mis_url = 'https://mis.cf139.com';
   // var mis_url = '//mis.cf860.com';
@@ -49,7 +50,7 @@
           }
         };
         userInfo = $.parseJSON(useInfo);
-        appCustomerNo = userInfo.account;
+        //appCustomerNo = userInfo.account;
         // // userInfo ? userInfo : (useInfo && $.parseJSON(useInfo));
         // // appCustomerNo = userInfo && userInfo.account;
         alert(useInfo)
@@ -71,7 +72,7 @@
     //      'url': mis_url + "/public/ding/score",
     //      'actId': 20200901,
     //      'score': score,
-    //      'version': 1 
+    //      'version': 1
     //   })
     //    $.loadingPost(param, function(res){
     //    },function(){
@@ -218,8 +219,8 @@
       //   }catch(e){
       //     console.log(e);
       //     console.log('catch');
-          
-          
+
+
       //   }
       // })
    },
@@ -230,13 +231,13 @@
       gameArea.addEventListener('touchmove',function(e){
         e.preventDefault();
       },{passive: false});
-      
+
       $("body").css("overflow","hidden");
       $("body").css("position","fixed");
       $("body").css("z-index","100");
     }else{
       // document.removeEventListener('touchmove',function(e){
-      //   e.preventDefault();  
+      //   e.preventDefault();
       // },{passive: false})
       $("body").css("overflow","unset");
       $("body").css("position","unset");
@@ -259,9 +260,9 @@
 
       if (res.code == 200) {
           data = res.ch_msg;
-          if (data[0]!== '' && data.length > 0) { 
+          if (data[0]!== '' && data.length > 0) {
               //Array(1)
-              // if (data[0].activetime == "undefined" || data[0].activetime === "") { 
+              // if (data[0].activetime == "undefined" || data[0].activetime === "") {
               // 登录未激活，跳转存款页面
               if(data[0].activetime === 0 ){
                 $('#deposit').show();
