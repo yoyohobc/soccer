@@ -12,9 +12,9 @@ var mis_url = 'https://mis.cfd139.com';
 // var mis_url = "http://mis.will68.com"
 
 // 正式站
-var actId = 20210211; 
+var actId = 20210211;
 // 正式前測試
-// var actId = 20210127; 
+// var actId = 20210127;
 // var actId = 20201228;
 var appCustomerNo, userInfo, account;
 
@@ -28,7 +28,7 @@ var appCustomerNo, userInfo, account;
 
 // 激活
 // {activetime: 1609728360000, amount: 100}
-// var account = 81018453; 
+// var account = 81018453;
 // 未激活
 // {activetime: 0, amount: 0}
 // var account = 81018455;
@@ -41,10 +41,10 @@ var appCustomerNo, userInfo, account;
 // TODO: 測試帳號用打開
 // var userInfo = { 'account': account,
 //     'accountType': 1,
-//     'channel': 'umeng', 
+//     'channel': 'umeng',
 //     'firstLogin': false,
-//     'hasReal': true, 
-//     'appVerCode': 177 
+//     'hasReal': true,
+//     'appVerCode': 177
 //   };
 
 $.extend({
@@ -68,7 +68,7 @@ $.extend({
     //  如果是安卓手机浏览器且是配置的是APP内应用
     if (type == 0 && typeof (uiObject) !== "undefined") {
       useInfo = uiObject.getInfo(); //android终端
-
+      alert(JSON.stringify(uiObject));
     } else if (type == 1) {
       if (typeof (window.getInfo) !== "undefined") {
         useInfo = window.getInfo()
@@ -79,7 +79,7 @@ $.extend({
       // TODO: 正式帳號用打開
       userInfo = $.parseJSON(useInfo);
       appCustomerNo = userInfo.account;
-      
+
       $.checkActivation(appCustomerNo)
   },
   //新版ios
@@ -186,7 +186,7 @@ $.extend({
         $('#message-section').hide();
       }
     })
-    
+
      // try {
      // console.log($.mechined());
        if ($.mechined() == 0) {//android
@@ -210,8 +210,8 @@ $.extend({
      //   }catch(e){
      //     console.log(e);
      //     console.log('catch');
-         
-         
+
+
      //   }
      // })
   },
@@ -219,26 +219,26 @@ $.extend({
 
    if(noScroll){
   //    startPage.addEventListener('touchmove',function(e){
-  //      e.preventDefault();  
+  //      e.preventDefault();
   //    },{passive: false});
   //    gameArea.addEventListener('touchmove',function(e){
   //      e.preventDefault();
   //    },{passive: false});
-     
+
     //  $("body").css("overflow","hidden");
     //  $("body").css("position","fixed");
     //  $("body").css("z-index","100");
-    
+
    }else{
      // document.removeEventListener('touchmove',function(e){
-     //   e.preventDefault();  
+     //   e.preventDefault();
      // },{passive: false})
      $("body").css("overflow","unset");
      $("body").css("position","unset");
    }
  },
  downloadApp() {
-   
+
       // android
       if ($.mechined() == 0) {
           window.location.href = 'https://sc.tfejy.com/source/material/CFD_APP.apk';
@@ -258,9 +258,9 @@ $.extend({
 
       if (res.code == 200) {
           data = res.ch_msg;
-          if (data[0]!== '' && data.length > 0) { 
+          if (data[0]!== '' && data.length > 0) {
               //Array(1)
-              // if (data[0].activetime == "undefined" || data[0].activetime === "") { 
+              // if (data[0].activetime == "undefined" || data[0].activetime === "") {
               // 登录未激活，跳转存款页面
               if(data[0].activetime === 0 ){
                 $('#popup-wrapper').show();
@@ -302,7 +302,7 @@ $.extend({
   //           alert(res.msg)
   //       }
   //   }, function(err) {
-      
+
   //     $('#popup-wrapper').show();
   //     $("#notice-section").show();
   //     console.log('激活 err:'+ err);
@@ -334,7 +334,7 @@ $.extend({
         $(oMain).on("restart", function (evt) {
             $('#popup-wrapper').hide();
             $('.popup-content').hide()
-            
+
         });
         if (isIphone()) {
             setTimeout(function () { sizeHandler(); }, 200);
@@ -343,8 +343,8 @@ $.extend({
         }
     }
   },
-  // 判斷活動狀態 
-  accStatus: function () { 
+  // 判斷活動狀態
+  accStatus: function () {
      $("#btn-play").off('click');
     let param = $.extend(userInfo, {
       'url': mis_url + "/public/ding/check",
@@ -352,10 +352,10 @@ $.extend({
       'version': 0
     })
     $.loadingPost(param, function (data) {
-      $("#btn-play").click(function () {  
+      $("#btn-play").click(function () {
         $.accStatus()
       });
-    
+
       // {
       //   ch_msg: []
       //   code: 1009
@@ -381,18 +381,18 @@ $.extend({
       }
     },function(err){
        // alert('cfApiEnd');
-       $("#btn-play").click(function () {          
+       $("#btn-play").click(function () {
          $.accStatus()
        });
        $.noScroll(false);
        // $("body").css("overflow","unset");
        // $("body").css("position","unset");
        // console.log('关闭scroll',err);
-       
+
     })
   },
   // 送出遊戲分數
-  submitScore(iScore) { 
+  submitScore(iScore) {
     let param = $.extend(userInfo, {
       'url': mis_url + "/public/ding/score",
       'actId': actId,
