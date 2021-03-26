@@ -315,6 +315,7 @@
                       $.noScroll(true);
                       $.accStatus()
                   } else {
+                      alert(appCustomerNo);
                       window.location.href = "https://m.cftrader.com/login?intercept_login";
                   }
               } else {
@@ -325,7 +326,6 @@
             })
             $("#checkRank").click(function() {
                 if (href.indexOf('noneheader') != -1 || APP_MODE) {
-                    alert(appCustomerNo);
                     if (appCustomerNo) {
                         $.rankList()
                     } else {
