@@ -46,7 +46,7 @@
         };
         //alert('getAppUserInfo',useInfo)
         userInfo = $.parseJSON(useInfo);
-        appCustomerNo = useInfo.account;
+        appCustomerNo = userInfo.account;
         // userInfo ? userInfo : (useInfo && $.parseJSON(useInfo));
         // appCustomerNo = userInfo && userInfo.account;
         alert(appCustomerNo)
