@@ -7,13 +7,13 @@
  var appCustomerNo,userInfo;
 //  var appCustomerNo = 81018134;
 //  var appCustomerNo = 81018303;
-  // var userInfo = { 
+  // var userInfo = {
   // 'account': appCustomerNo,
   // 'accountType': 1,
-  // 'channel': 'umeng', 
+  // 'channel': 'umeng',
   // 'firstLogin': false,
-  // 'hasReal': true, 
-  // 'appVerCode': 177 
+  // 'hasReal': true,
+  // 'appVerCode': 177
 //  };
 
   // var mis_url = 'https://mis.cf139.com';
@@ -44,11 +44,12 @@
             alert('ios2');
           }
         };
-        alert('getAppUserInfo',useInfo)
+        //alert('getAppUserInfo',useInfo)
         userInfo = $.parseJSON(useInfo);
-        appCustomerNo = userInfo.account;
+        appCustomerNo = useInfo.account;
         // userInfo ? userInfo : (useInfo && $.parseJSON(useInfo));
         // appCustomerNo = userInfo && userInfo.account;
+        alert(appCustomerNo)
         $.checkActivation(appCustomerNo);
    },
    //新版ios
@@ -66,7 +67,7 @@
     //      'url': mis_url + "/public/ding/score",
     //      'actId': 20200901,
     //      'score': score,
-    //      'version': 1 
+    //      'version': 1
     //   })
     //    $.loadingPost(param, function(res){
     //    },function(){
@@ -212,8 +213,8 @@
       //   }catch(e){
       //     console.log(e);
       //     console.log('catch');
-          
-          
+
+
       //   }
       // })
    },
@@ -224,13 +225,13 @@
       gameArea.addEventListener('touchmove',function(e){
         e.preventDefault();
       },{passive: false});
-      
+
       $("body").css("overflow","hidden");
       $("body").css("position","fixed");
       $("body").css("z-index","100");
     }else{
       // document.removeEventListener('touchmove',function(e){
-      //   e.preventDefault();  
+      //   e.preventDefault();
       // },{passive: false})
       $("body").css("overflow","unset");
       $("body").css("position","unset");
@@ -253,9 +254,9 @@
 
       if (res.code == 200) {
           data = res.ch_msg;
-          if (data[0]!== '' && data.length > 0) { 
+          if (data[0]!== '' && data.length > 0) {
               //Array(1)
-              // if (data[0].activetime == "undefined" || data[0].activetime === "") { 
+              // if (data[0].activetime == "undefined" || data[0].activetime === "") {
               // 登录未激活，跳转存款页面
               if(data[0].activetime === 0 ){
                 $('#deposit').show();
@@ -305,7 +306,7 @@
        }
      },function(err){
         // alert('cfApiEnd');
-        // $("#startBtn").click(function () {          
+        // $("#startBtn").click(function () {
         //   $.accStatus()
         // });
         // $("#startPage").hide()
@@ -313,7 +314,7 @@
         // $("body").css("overflow","unset");
         // $("body").css("position","unset");
         // console.log('关闭scroll',err);
-        
+
      })
    },
    submitScore() { //看完分數後按確認提交分數
@@ -325,7 +326,7 @@
        'score': score,
        'version': 0
      })
-     
+
      $.loadingPost(param, function (data) {
        if (data.code == 200) {
          $("#myScore").hide();
