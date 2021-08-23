@@ -450,7 +450,7 @@ $.extend({
             $.loginedByAccount(user);
         }, function(res) {
             console.error(res);
-            alert(JSON.stringify(res))
+            alert(JSON.stringify(user.account))
             alert('活动报名失败')
         });
     },
