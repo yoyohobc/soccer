@@ -16,9 +16,9 @@ window.getInfoCallback = function(info) {
 $.extend({
     lotteryNo: 0,
     ajaxData: function(options, callbackSuc, callbackErr) {
-        options = $.extend(options, {
+        /*options = $.extend(options, {
             "_r": Math.random()
-        });
+        });*/
         $.ajax({
             headers: {
                 sign: "test_sign_8859"
