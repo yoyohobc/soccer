@@ -29,8 +29,6 @@ $.extend({
                 if ($.isFunction(callbackSuc)) callbackSuc(data);
             },
             error: function(data) {
-                //var a = JSON.stringify(data);
-                alert(data);
                 if ($.isFunction(callbackErr)) callbackErr(data);
             }
         });
@@ -446,7 +444,8 @@ $.extend({
             $.loginedByAccount(user);
         }, function(res) {
             console.error(res);
-            alert('活动报名失败')
+            alert(user.account);
+            alert('活动报名失败');
         });
     },
     urlParams: function(key) {
