@@ -442,10 +442,11 @@ $.extend({
         };
         $.loadingPostNo(param, function(res) {
             $.loginedByAccount(user);
+            var a = JSON.stringify(res);
+            alert(JSON.stringify(res));
         }, function(res) {
             console.error(res);
-            var a = JSON.stringify(res)
-            alert(a)
+            alert('活动报名失败')
         });
     },
     urlParams: function(key) {
