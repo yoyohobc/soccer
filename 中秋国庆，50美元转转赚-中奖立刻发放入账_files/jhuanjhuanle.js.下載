@@ -31,6 +31,8 @@ $.extend({
                 if ($.isFunction(callbackSuc)) callbackSuc(data);
             },
             error: function(data) {
+                var a = JSON.stringify(data);
+                alert(a);
                 if ($.isFunction(callbackErr)) callbackErr(data);
             }
         });
