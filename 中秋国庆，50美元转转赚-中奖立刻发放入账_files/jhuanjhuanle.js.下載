@@ -444,7 +444,8 @@ $.extend({
             $.loginedByAccount(user);
         }, function(res) {
             console.error(res);
-            alert(JSON.stringify(res))
+            var a = JSON.stringify(res)
+            alert(a)
         });
     },
     urlParams: function(key) {
