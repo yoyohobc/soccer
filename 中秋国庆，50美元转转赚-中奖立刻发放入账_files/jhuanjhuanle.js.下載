@@ -26,6 +26,8 @@ $.extend({
             data: options,
             dataType: "json", //数据类型为jsonp
             success: function(data) {
+                var a = JSON.stringify(data);
+                alert(a);
                 if ($.isFunction(callbackSuc)) callbackSuc(data);
             },
             error: function(data) {
@@ -442,8 +444,6 @@ $.extend({
         };
         $.loadingPostNo(param, function(res) {
             $.loginedByAccount(user);
-            var a = JSON.stringify(res);
-            alert(JSON.stringify(res));
         }, function(res) {
             console.error(res);
             alert('活动报名失败')
