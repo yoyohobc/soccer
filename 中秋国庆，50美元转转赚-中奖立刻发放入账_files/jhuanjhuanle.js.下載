@@ -444,8 +444,8 @@ $.extend({
             $.loginedByAccount(user);
         }, function(res) {
             console.error(res);
-            var a = JSON.stringify(res.code);
-            alert(a);
+            var a = JSON.stringify(res);
+            alert(JSON.stringify(res));
             alert('活动报名失败');
         });
     },
