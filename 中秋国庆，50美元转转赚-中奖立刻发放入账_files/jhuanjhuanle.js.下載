@@ -1,8 +1,8 @@
 // var bRotate = false;
-var actId = 79;
+var actId = 171;
 
-var pre_op = "https://precrs.cfd139.com";
-var mis_url = "https://precrs.cfd139.com";
+var pre_op = "http://gate.trexttd.com/crs";
+var mis_url = "http://gate.trexttd.com/crs";
 
 var user = {
     // account: "81086614"
