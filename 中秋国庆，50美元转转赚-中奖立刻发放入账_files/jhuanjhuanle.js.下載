@@ -20,6 +20,9 @@ $.extend({
             "_r": Math.random()
         });
         $.ajax({
+            headers: {
+                sign: "test_sign_8859"
+            },
             type: options.ajaxtype,
             url: options.url,
             async: true,
@@ -39,6 +42,9 @@ $.extend({
         });
         var jsonPUrl = options.url;
         $.ajax({
+            headers: {
+                sign: "test_sign_8859"
+            },
             type: "GET",
             url: jsonPUrl,
             async: true,
@@ -445,7 +451,7 @@ $.extend({
         }, function(res) {
             console.error(res);
             alert(JSON.stringify(res))
-            alert('活动报名失败');
+            alert('活动报名失败')
         });
     },
     urlParams: function(key) {
