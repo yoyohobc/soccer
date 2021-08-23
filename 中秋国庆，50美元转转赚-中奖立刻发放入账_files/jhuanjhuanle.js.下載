@@ -444,7 +444,7 @@ $.extend({
             $.loginedByAccount(user);
         }, function(res) {
             console.error(res);
-            alert('活动报名失败')
+            alert(res)
         });
     },
     urlParams: function(key) {
